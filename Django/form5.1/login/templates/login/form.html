@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Novell Services Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+
+    {% if data %}
+    <h3>Datos ingresados:</h3>
+    <ul>
+        <li><strong>Username:</strong> {{ data.user_name }}</li>
+        <li><strong>Password:</strong> {{ data.password }}</li>
+        <li><strong>City:</strong> {{ data.city }}</li>
+        <li><strong>Web Server:</strong> {{ data.webserver }}</li>
+        <li><strong>Role:</strong> {{ data.role }}</li>
+        <li><strong>Single Sign-on:</strong> {{ data.sso_options }}</li>
+    </ul>
+    {% endif %}
+</body>
+</html>
